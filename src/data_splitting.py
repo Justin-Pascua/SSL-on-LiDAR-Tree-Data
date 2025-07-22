@@ -52,6 +52,19 @@ class DataFrameDataset(Dataset):
         return torch.tensor(sample, dtype=torch.float32).to(device)
 
 def predict_on_dataframe(model, dataframe, feature_columns, batch_size = 1024):
+    """
+    Applies the given model to a dataframe of unlabeled tree data
+    to generate pseudo-labels.
+    params:
+        model: a PyTorch model compatible with the LiDAR Tree data
+        
+        dataframe: a pandas dataframe containing the unlabeled data samples
+        
+        feature_columns: a list of columns in dataframe which represent the features
+        
+        batch_size: an integer indicating the batch size used for the dataloaders applied
+        to the dataframe
+    """
     model = model.to(device)
     model.eval()
 
