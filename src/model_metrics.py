@@ -133,20 +133,4 @@ def plot_f1_scores(model, labeled_dataloader):
     plt.ylabel('F1 Score')
     plt.legend()
     plt.show()
-        f1_scores = get_f1_scores(model, labeled_dataloader)
-        for i, species in enumerate(species_strings):
-            print(f"{species}: {f1_scores[i]: .3f}")
-        print(f"Macro F1 Score: {np.mean(f1_scores): .3f}")
-      
-        
-    def plot_f1_scores(model, labeled_dataloader):
-      raw_f1_scores = get_f1_scores(model, labeled_dataloader)
-      macro_f1 = np.mean(raw_f1_scores)
-      variance = np.var(raw_f1_scores)
     
-      plt.bar(species_strings, raw_f1_scores, label = f'Variance = {variance: .3f}')
-      plt.axhline(y = macro_f1, color='r', linestyle='--', label = f'Macro-F1 = {macro_f1: .3f}')
-      plt.xticks(rotation = 45)
-      plt.ylabel('F1 Score')
-      plt.legend()
-      plt.show()

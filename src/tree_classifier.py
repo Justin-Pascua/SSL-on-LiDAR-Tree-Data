@@ -70,9 +70,9 @@ class TreeClassifier(nn.Module):
             pred = self(X)
             loss = loss_fn(pred, y)
             
-        loss.backward()
-        optimizer.step()
-        optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+            optimizer.zero_grad()
 
     def _training_eval(self, train_dataloader, val_dataloader, loss_fn, verbose = 1):
         """
